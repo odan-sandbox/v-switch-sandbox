@@ -1,7 +1,7 @@
 <template>
   <v-switch>
     <template v-slot:desktop>
-      <red><slot></slot></red>
+      <red bold><slot></slot></red>
     </template>
     <template v-slot:mobile>
       <blue><slot></slot></blue>
