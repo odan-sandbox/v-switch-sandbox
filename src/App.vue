@@ -1,18 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <v-switch>
+    <template v-slot:desktop>
+      <red><slot></slot></red>
+    </template>
+    <template v-slot:mobile>
+      <blue><slot></slot></blue>
+    </template>
+    <template v-slot:content> content </template>
+  </v-switch>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import { defineComponent } from "vue";
+import VSwitch from "./components/v-switch.vue";
+import red from "./components/red.vue";
+import blue from "./components/blue.vue";
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-})
+    VSwitch,
+    red,
+    blue,
+  },
+});
 </script>
 
 <style>
