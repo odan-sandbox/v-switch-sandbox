@@ -1,10 +1,10 @@
 <template>
   <v-switch>
     <template v-slot:desktop>
-      <v-text color="red" bold><slot></slot></v-text>
+      <v-text color="red" bold />
     </template>
     <template v-slot:mobile>
-      <v-text color="blue"><slot></slot></v-text>
+      <v-text color="blue" />
     </template>
     <template v-slot:content> content </template>
   </v-switch>

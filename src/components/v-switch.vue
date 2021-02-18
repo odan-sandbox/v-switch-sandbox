@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="is-desktop">
-      <component :is="desktop"><slot name="content"></slot></component>
+      <component :is="desktop"><slot name="content" /></component>
     </div>
     <div class="is-mobile">
-      <component :is="mobile"><slot name="content"></slot></component>
+      <component :is="mobile"><slot name="content" /></component>
     </div>
   </div>
 </template>
