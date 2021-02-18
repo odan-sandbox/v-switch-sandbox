@@ -1,13 +1,14 @@
 <template>
-  <div class="red" :class="{ bold }">
+  <div :class="{ bold, red, blue }">
     <slot />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent } from "vue";
 export type Props = {
   bold: boolean;
+  color: string;
 };
 export default defineComponent({
   props: {
@@ -15,9 +16,13 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
+    color: {
+      type: String,
+      required: true,
+    },
   },
-  setup({ bold }) {
-    return { bold };
+  setup({ bold, color }) {
+    return { bold, red: color === "red", blue: color === "blue" };
   },
 });
 </script>
@@ -25,6 +30,9 @@ export default defineComponent({
 <style scoped>
 .red {
   color: red;
+}
+.blue {
+  color: blue;
 }
 .bold {
   font-weight: 700;

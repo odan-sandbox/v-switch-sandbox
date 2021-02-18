@@ -1,10 +1,10 @@
 <template>
   <v-switch>
     <template v-slot:desktop>
-      <red bold><slot></slot></red>
+      <v-text color="red" bold><slot></slot></v-text>
     </template>
     <template v-slot:mobile>
-      <blue><slot></slot></blue>
+      <v-text color="blue"><slot></slot></v-text>
     </template>
     <template v-slot:content> content </template>
   </v-switch>
@@ -13,15 +13,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import VSwitch from "./components/v-switch.vue";
-import red from "./components/red.vue";
-import blue from "./components/blue.vue";
+import VText from "./components/v-text.vue";
 
 export default defineComponent({
   name: "App",
   components: {
     VSwitch,
-    red,
-    blue,
+    VText,
   },
 });
 </script>
