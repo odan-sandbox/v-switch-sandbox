@@ -1,20 +1,35 @@
 <template>
   <div>
     <div class="is-desktop">
-      <component :is="desktop"><slot name="content" /></component>
+      <component :is="component" v-bind="desktopProps"
+        ><slot name="content"
+      /></component>
     </div>
     <div class="is-mobile">
-      <component :is="mobile"><slot name="content" /></component>
+      <component :is="component" v-bind="mobileProps"
+        ><slot name="content"
+      /></component>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import Vue, { VNode } from "vue";
 
-export default defineComponent({
-  setup(_, { slots }) {
-    return { desktop: slots.desktop!()[0], mobile: slots.mobile!()[0] };
+export default Vue.extend({
+  props: {
+    component: {
+      type: Function,
+      required: true,
+    },
+    desktopProps: {
+      type: Object,
+      required: true,
+    },
+    mobileProps: {
+      type: Object,
+      required: true,
+    },
   },
 });
 </script>

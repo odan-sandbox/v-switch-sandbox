@@ -5,12 +5,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import Vue from "vue";
 export type Props = {
   bold: boolean;
   color: string;
 };
-export default defineComponent({
+export default Vue.extend({
   props: {
     bold: {
       type: Boolean,
@@ -21,8 +21,13 @@ export default defineComponent({
       required: true,
     },
   },
-  setup({ bold, color }) {
-    return { bold, red: color === "red", blue: color === "blue" };
+  computed: {
+    red(): boolean {
+      return this.color === "red";
+    },
+    blue(): boolean {
+      return this.color === "blue";
+    },
   },
 });
 </script>

@@ -1,25 +1,40 @@
 <template>
-  <v-switch>
-    <template v-slot:desktop>
-      <v-text color="red" bold />
-    </template>
-    <template v-slot:mobile>
-      <v-text color="blue" />
-    </template>
+  <v-switch
+    :component="VText"
+    :desktopProps="desktopProps"
+    :mobileProps="mobileProps"
+  >
     <template v-slot:content> content </template>
   </v-switch>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import Vue from "vue";
 import VSwitch from "./components/v-switch.vue";
 import VText from "./components/v-text.vue";
 
-export default defineComponent({
+export default Vue.extend({
   name: "App",
   components: {
     VSwitch,
     VText,
+  },
+  computed: {
+    VText() {
+      return VText;
+    },
+    desktopProps() {
+      return {
+        bold: true,
+        color: "blue",
+      };
+    },
+    mobileProps() {
+      return {
+        bold: false,
+        color: "red",
+      };
+    },
   },
 });
 </script>
